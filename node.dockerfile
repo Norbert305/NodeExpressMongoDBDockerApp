@@ -19,12 +19,12 @@
 
 FROM        node:alpine
 
-LABEL       author="Dan Wahlin"
+LABEL       author="Norbert Seals"
 
 ARG         PACKAGES=nano
 
-ENV         TERM xterm
-RUN         apk update && apk add $PACKAGES
+ENV         NODE_ENV=production
+ENV         PORT=3000
 
 WORKDIR     /var/www
 COPY        package.json package-lock.json ./
