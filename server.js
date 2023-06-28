@@ -10,7 +10,7 @@ const express = require('express'),
 
       port = process.env.PORT || 3000,
       config = require('./lib/configLoader'),    
-      db = require('./lib/database').default,
+      db = require('./lib/database'),
 
       routes = require('./routes/index'),
       app = express();
@@ -44,7 +44,7 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  const err = new Error('Not Found');
+  var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
